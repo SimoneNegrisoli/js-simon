@@ -15,7 +15,7 @@ Realizzare l'esercizio con grafica e senza utilizzo di prompt ma con casella/e  
 /*
 Logica e passi che passaggi che voglio applicare:
 - faccio un div dove visualizzo i numeri, -> done
-- un btn sotto che clicco e mi fa visualizzare i numeri per 30 sec, 
+- un btn sotto che clicco e mi fa visualizzare i numeri per 30 sec, li deco salvare in array e stamparli in cosole per 30 sec
 - quando i numeri spariscono il btn non è piu cliccabile, 
 - ma si sblocca la possibilità di scrivere i numeri dentro una casella di input (devo verificare che non siano attaccati). 
 - dopodichè invio i numei scritti con unaltro bottone (quindi altro event listner) 
@@ -32,13 +32,13 @@ simonSay();
 function  simonSay (){
 
     // tutte le variabili che possono servirmi
-    const min = 1
-    const max = 100
+    const minN = 1
+    const maxN = 100
     const numeriDaGenerare = 5;
     const numeriGenerati = [];  //i numeri random generati li pusho qui dentro
     let gameOver;  // la faccio partire quando il giocatore vince o perde con il risultato
-    let numeriUtente = [];  //qui pusho il value che prendo dalla casella di input 
-    let numeriIndovinati = [];  // qui confronto i numeruUtente con questi
+    const numeriUtente = [];  //qui pusho il value che prendo dalla casella di input 
+    const numeriIndovinati = [];  // qui confronto i numeruUtente con questi
 
     // questo lo faccio vedere dopo 30 secondi
     const checkResult = document.querySelector('.check-result')
@@ -48,12 +48,33 @@ function  simonSay (){
     const endGame = document.getElementById('risultato')
     endGame.classList.add('d-none')
 
+    // bottone per far partire il gioco 
+    const btnStart = document.getElementById('btn-start')
+    btnStart.addEventListener('click', play);
+
+    // qui parte il gioco 
+    function play(){
+
+        gameOver = false;
+        // qui faccio il ciclo per trovare il n rnd e pusharlo nell'array
+        while (numeriGenerati.length < numeriDaGenerare){
+            let numberToRember = getRndInteg (minN , maxN);
+            if(!numeriGenerati.includes(numberToRember)){
+                numeriGenerati.push(numberToRember);
+            }
+        }
+            console.log(numeriGenerati)
+    }
+
+
+
     // while (numeriGenerati.length < numeriDaGenerare) {
     //     // get rndinteger
     //     if (!numeriGenerati.includes(numeriDaGenerare))
 
 
-    // } // settimeout (miafunzione, 3000);
+    // } 
+    // settimeout (miafunzione, 3000);
 
 
     // array numeriUtente[]
