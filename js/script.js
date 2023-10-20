@@ -26,10 +26,10 @@ Logica e passi che passaggi che voglio applicare:
 
 "use strict";
 
-simonSay(); 
+simonSay();
 
 // Main function
-function  simonSay (){
+function simonSay() {
 
     // tutte le variabili che possono servirmi
     const minN = 1
@@ -43,7 +43,7 @@ function  simonSay (){
     // questo lo faccio vedere dopo 30 secondi
     const checkResult = document.querySelector('.check-result')
     checkResult.classList.add('d-none')
-    
+
     // lo faccio vedere come risultato finale quando stampo il messaggio
     const endGame = document.getElementById('risultato')
     endGame.classList.add('d-none')
@@ -53,17 +53,36 @@ function  simonSay (){
     btnStart.addEventListener('click', play);
 
     // qui parte il gioco 
-    function play(){
+    function play() {
 
         gameOver = false;
+
         // qui faccio il ciclo per trovare il n rnd e pusharlo nell'array
-        while (numeriGenerati.length < numeriDaGenerare){
-            let numberToRember = getRndInteg (minN , maxN);
-            if(!numeriGenerati.includes(numberToRember)){
+        while (numeriGenerati.length < numeriDaGenerare) {
+            let numberToRember = getRndInteg(minN, maxN);
+            if (!numeriGenerati.includes(numberToRember)) {
                 numeriGenerati.push(numberToRember);
             }
+
         }
-            console.log(numeriGenerati)
+
+        // adesso faccio una funzione e mi stampo dentro i numeri rnd, faccio una funzione perche cosi poi possi richiamarla con il set timeout
+        function printRnd (){
+            document.getElementById('numeri-random').innerHTML = numeriGenerati;
+        }
+        setTimeout (printRnd, 3000)
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
 
