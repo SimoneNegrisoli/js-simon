@@ -63,15 +63,15 @@ function simonSay() {
             if (!numeriGenerati.includes(numberToRember)) {
                 numeriGenerati.push(numberToRember);
             }
-
+            document.getElementById('numeri-random').innerHTML = numeriGenerati;
         }
 
         // adesso faccio una funzione e mi stampo dentro i numeri rnd, faccio una funzione perche cosi poi possi richiamarla con il set timeout
-        function printRnd (){
-            document.getElementById('numeri-random').innerHTML = numeriGenerati;
-        }
-        setTimeout (printRnd, 3000)
 
+        function remuveRndNumber (){
+            document.getElementById('numeri-random').innerHTML = ''
+        }
+        setTimeout (remuveRndNumber, 3000)
 
 
 
@@ -84,29 +84,6 @@ function simonSay() {
 
 
     }
-
-
-
-    // while (numeriGenerati.length < numeriDaGenerare) {
-    //     // get rndinteger
-    //     if (!numeriGenerati.includes(numeriDaGenerare))
-
-
-    // } 
-    // settimeout (miafunzione, 3000);
-
-
-    // array numeriUtente[]
-    /*
-    numeriGenerati [1,4,5]
-    numeriUtente [4,7,9,3 ]
-    
-    arraynumeri indovinati[]    se faccio numeri indovinati.lenght
-    
-    ciclo sui numeri utente e per ogni numero controllo se incluso nell'array dei num generati e quelli trovati con if li pusho nel'altro array
-    
-    
-    */
 
 
 
